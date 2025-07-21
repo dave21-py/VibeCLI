@@ -3,58 +3,112 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import * as readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
 import * as fs from 'fs';
+import chalk from 'chalk';
 
 // --- CONFIGURATION ---
 dotenv.config();
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-if (!GEMINI_API_KEY) {
-  console.error("No vibe check: GEMINI_API_KEY is missing from .env file.");
-  process.exit(1);
+
+// --- STYLING & UI ---
+const magenta = chalk.magenta;
+const cyan = chalk.cyan;
+const yellow = chalk.yellow;
+const green = chalk.green;
+const gray = chalk.gray;
+
+const modelName = "gemini-1.5-flash-latest";
+
+function drawHeader() {
+    console.log(magenta('┌────────────────────────────────────────────────────────┐'));
+    console.log(magenta('│                                                        │'));
+    console.log(magenta('│ ') + cyan.bold('  ██████╗ ██╗     ██╗  ██████╗  ') + magenta('                    │'));
+    console.log(magenta('│ ') + cyan.bold(' ██╔════╝ ██║     ██║ ██╔═══██╗ ') + magenta('                    │'));
+    console.log(magenta('│ ') + cyan.bold(' ██║      ██║     ██║ ██║   ██║ ') + magenta('                    │'));
+    console.log(magenta('│ ') + cyan.bold(' ██║      ██║     ██║ ██║   ██║ ') + magenta('                    │'));
+    console.log(magenta('│ ') + cyan.bold(' ╚██████╗ ███████╗██║ ╚██████╔╝ ') + magenta('                    │'));
+    console.log(magenta('│ ') + cyan.bold('  ╚═════╝ ╚══════╝╚═╝  ╚═════╝  ') + magenta('                    │'));
+    console.log(magenta('│                                                        │'));
+    console.log(magenta('├────────────────────────────────────────────────────────┤'));
+    console.log(magenta('│    ') + '       ' + cyan('Creative AI Development Assistant') + '        ' + magenta('│'));
+    console.log(magenta('├────────────────────────────────────────────────────────┤'));
 }
 
-const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash-latest",
-    systemInstruction: fs.readFileSync('prompts/system.txt', 'utf-8'),
-});
+function drawGettingStarted() {
+    console.log(magenta('│ ') + yellow('Tips for getting started:') + ' '.repeat(32) + magenta('│'));
+    console.log(magenta('│ ') + '  1. Ask questions, edit files, or run commands.' + ' '.repeat(6) + magenta('│'));
+    console.log(magenta('│ ') + '  2. Be specific for the best results.' + ' '.repeat(16) + magenta('│'));
+    console.log(magenta('│ ') + '  3. Create @filename files to customize your interactions.' + magenta('│'));
+    console.log(magenta('│ ') + '  4. Type /help for more information.' + ' '.repeat(17) + magenta('│'));
+    console.log(magenta('├────────────────────────────────────────────────────────┤'));
+}
 
-const rl = readline.createInterface({ input, output, terminal: false });
-const PROMPT = "vibecli> ";
+function drawStatus() {
+    console.log(magenta('│ ') + gray('~/cli-try') + '    ' + green('✓ API configured') + '   ' + '🤖 ' + gray(modelName) + '    ' + magenta('│'));
+    console.log(magenta('└────────────────────────────────────────────────────────┘'));
+}
 
 // --- MAIN SHELL LOGIC ---
 async function runShell() {
+    if (!GEMINI_API_KEY) {
+        console.error(chalk.red("No vibe check: GEMINI_API_KEY is missing from .env file."));
+        process.exit(1);
+    }
+    
+    // Draw the initial UI
+    drawHeader();
+    drawGettingStarted();
+    drawStatus();
+
+    const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+    const model = genAI.getGenerativeModel({
+        model: modelName,
+        systemInstruction: fs.readFileSync('prompts/system.txt', 'utf-8'),
+    });
+
+    const rl = readline.createInterface({ input, output });
+    const prompt = magenta.bold('~ vibecli> ');
+
     const chat = model.startChat({
-        history: [], // We'll let the user manage history via commands
+        history: [],
         generationConfig: {
-            maxOutputTokens: 200, // Keep responses short and snappy
+            maxOutputTokens: 200,
         },
     });
 
-    console.log("VibeCLI is online. rn just chill and type a command.");
-    process.stdout.write(PROMPT);
+    // Manually display the first prompt
+    process.stdout.write(prompt);
 
-    for await (const line of rl) {
+    rl.on('line', async (line) => {
         if (line.trim().toLowerCase() === 'exit') {
-            break; // Exit loop if user types 'exit'
+            console.log(cyan("\nk, bye."));
+            rl.close();
+            return;
         }
 
         try {
             const result = await chat.sendMessageStream(line);
-
-            // Stream the output
+            let fullResponse = '';
             for await (const chunk of result.stream) {
                 const chunkText = chunk.text();
-                process.stdout.write(chunkText);
+                process.stdout.write(cyan(chunkText));
+                fullResponse += chunkText;
             }
 
+            // Ensure the next prompt appears correctly after the streaming response
+            if (!fullResponse.trim().endsWith('vibecli>')) {
+                 process.stdout.write('\n');
+            }
+             process.stdout.write(prompt);
+
         } catch (error) {
-            console.error("\nError:", error.message);
-            process.stdout.write(PROMPT); // Show prompt again after error
+            console.error(chalk.red("\nError:"), error.message);
+            process.stdout.write(prompt);
         }
-    }
+    });
+
+    rl.on('close', () => {
+        process.exit(0);
+    });
 }
 
-runShell().then(() => {
-    console.log("\nk, bye.");
-    rl.close();
-});
+runShell();

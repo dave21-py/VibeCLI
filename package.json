@@ -5,18 +5,19 @@
     "main": "src/vibeshell.js",
     "type": "module",
     "scripts": {
-      "start": "node src/vibeshell.js"
+        "start": "node src/vibeshell.js"
     },
     "keywords": [
-      "gemini",
-      "cli",
-      "ai",
-      "shell"
+        "gemini",
+        "cli",
+        "ai",
+        "shell"
     ],
     "author": "Spurgeon Raju",
     "license": "ISC",
     "dependencies": {
-      "@google/generative-ai": "^0.15.0",
-      "dotenv": "^16.4.5"
+        "@google/generative-ai": "^0.15.0",
+        "chalk": "^5.4.1",
+        "dotenv": "^16.4.5"
     }
-  }
+}
