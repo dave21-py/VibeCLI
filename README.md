@@ -1,5 +1,7 @@
-<p align="center">
+
   <!-- VibeCLI ASCII Art Logo -->
+  <h2 align="center">VibeCLI</h2>
+  <p align="center">
   <pre>
 ██╗   ██╗██╗██████╗ ███████╗ ██████╗██╗     ██╗
 ██║   ██║██║██╔══██╗██╔════╝██╔════╝██║     ██║
@@ -8,7 +10,6 @@
  ╚████╔╝ ██║██████╔╝███████╗╚██████╗███████╗██╗
   ╚═══╝  ╚═╝╚═════╝ ╚══════╝ ╚═════╝╚══════╝╚═╝
 </pre>
-  <h2 align="center">VibeCLI</h2>
   <p align="center">An AI-powered shell and creative assistant with a chill vibe.</p>
 </p>
 
@@ -28,11 +29,28 @@
 
 ---
 
-### 🚀 Quick Start
+### Core Features
+
+*   **Shell Mode:** Simulate file system commands (`ls`, `cat`), network tools (`ping`), version control (`git`), and more.
+*   **Chat Mode:** Switch to a conversational assistant to ask coding questions, brainstorm ideas, or get explanations.
+*   **Styled UI:** A custom, colorful interface inspired by retro terminal aesthetics.
+*   **Built-in Help:** A comprehensive `help` command to guide you.
+
+### Quick Commands
+
+| Command | Mode | Description |
+| :--- | :--- | :--- |
+| `help` | Shell | Displays the full help screen with all commands. |
+| `chat` | Shell | Switches from Shell Mode to conversational Chat Mode. |
+| `exit` | Chat | **Returns from Chat Mode back to Shell Mode.** |
+|`Ctrl+C`| Shell | **Quits entire Shell Mode.** |
+
+
+### Setup and installation
 
 ```bash
 # 1) Clone the repository
-git clone https://github.com/YOUR-USERNAME/VibeCLI.git
+git clone https://github.com/dave21-py/VibeCLI
 cd VibeCLI
 
 # 2) Install dependencies
