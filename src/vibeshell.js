@@ -21,15 +21,15 @@ const modelName = "gemini-1.5-flash-latest";
 function drawHeader() {
     console.log(magenta('┌────────────────────────────────────────────────────────┐'));
     console.log(magenta('│                                                        │'));
-    console.log(magenta('│ ') + cyan.bold('  ██████╗ ██╗     ██╗  ██████╗  ') + magenta('                    │'));
-    console.log(magenta('│ ') + cyan.bold(' ██╔════╝ ██║     ██║ ██╔═══██╗ ') + magenta('                    │'));
-    console.log(magenta('│ ') + cyan.bold(' ██║      ██║     ██║ ██║   ██║ ') + magenta('                    │'));
-    console.log(magenta('│ ') + cyan.bold(' ██║      ██║     ██║ ██║   ██║ ') + magenta('                    │'));
-    console.log(magenta('│ ') + cyan.bold(' ╚██████╗ ███████╗██║ ╚██████╔╝ ') + magenta('                    │'));
-    console.log(magenta('│ ') + cyan.bold('  ╚═════╝ ╚══════╝╚═╝  ╚═════╝  ') + magenta('                    │'));
+    console.log(magenta('│  ') + cyan.bold('██╗   ██╗██╗██████╗ ███████╗ ██████╗██╗     ██╗') + '   ' + magenta('│'));
+    console.log(magenta('│  ') + cyan.bold('██║   ██║██║██╔══██╗██╔════╝██╔════╝██║     ██║') + '   ' + magenta('│'));
+    console.log(magenta('│  ') + cyan.bold('██║   ██║██║██████╔╝█████╗  ██║     ██║     ██║') + '   ' + magenta('│'));
+    console.log(magenta('│  ') + cyan.bold('╚██╗ ██╔╝██║██╔══██╗██╔══╝  ██║     ██║     ╚═╝') + '   ' + magenta('│'));
+    console.log(magenta('│  ') + cyan.bold(' ╚████╔╝ ██║██████╔╝███████╗╚██████╗███████╗██╗') + '   ' + magenta('│'));
+    console.log(magenta('│  ') + cyan.bold('  ╚═══╝  ╚═╝╚═════╝ ╚══════╝ ╚═════╝╚══════╝╚═╝') + '   ' + magenta('│'));
     console.log(magenta('│                                                        │'));
     console.log(magenta('├────────────────────────────────────────────────────────┤'));
-    console.log(magenta('│    ') + '       ' + cyan('Creative AI Development Assistant') + '        ' + magenta('│'));
+    console.log(magenta('│           Creative AI Development Assistant            │'));
     console.log(magenta('├────────────────────────────────────────────────────────┤'));
 }
 
