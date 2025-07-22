@@ -1,27 +1,41 @@
 <pre>
-██╗   ██╗██╗██████╗  ██████╗██╗  ██╗██╗
-██║   ██║██║██╔══██╗██╔════╝██║  ██║██║
-██║   ██║██║██████╔╝██║     ███████║██║
-╚██╗ ██╔╝██║██╔══██╗██║     ██╔══██║╚═╝
- ╚████╔╝ ██║██████╔╝╚██████╗██║  ██║██╗
-  ╚═══╝  ╚═╝╚═════╝  ╚═════╝╚═╝  ╚═╝╚═╝
+██╗   ██╗██╗██████╗ ███████╗ ██████╗██╗     ██╗
+██║   ██║██║██╔══██╗██╔════╝██╔════╝██║     ██║
+██║   ██║██║██████╔╝█████╗  ██║     ██║     ██║
+╚██╗ ██╔╝██║██╔══██╗██╔══╝  ██║     ██║     ╚═╝
+ ╚████╔╝ ██║██████╔╝███████╗╚██████╗███████╗██╗
+  ╚═══╝  ╚═╝╚═════╝ ╚══════╝ ╚═════╝╚══════╝╚═╝
 </pre>
 
 ### VibeCLI
 
-An AI-powered, real-time UNIX-style shell with a chill vibe. Powered by Google Gemini.
+An AI-powered, dual-mode command line interface with a chill vibe. Powered by Google Gemini.
 
-This project is a Node.js command-line interface that uses the Gemini API to interpret user commands and stream back a simulated shell output. It's less of a tool and more of a creative coding assistant—it can simulate file operations, git commands, network tools, and even code execution, all while maintaining a low-key, knowledgeable personality.
-
----
-
-### Tips for Getting Started
-
-1.  **Ask anything:** Try standard commands like `ls -a`, `cat <filename>`, or `git status`.
-2.  **Be specific:** For the best results, treat it like a real shell.
-3.  **Simulate code:** Try `node -e "console.log('sup world')"`
-4.  **Exit:** Just type `exit` to close the shell.
+This project provides a UNIX-style shell simulator and a conversational AI assistant in one beautiful, terminal-based package.
 
 ---
 
-### Example Usage
+### Core Features
+
+*   **Shell Mode:** Simulate file system commands (`ls`, `cat`), network tools (`ping`), version control (`git`), and more.
+*   **Chat Mode:** Switch to a conversational assistant to ask coding questions, brainstorm ideas, or get explanations.
+*   **Styled UI:** A custom, colorful interface inspired by retro terminal aesthetics.
+*   **Built-in Help:** A comprehensive `help` command to guide you.
+
+### Commands
+
+| Command | Mode | Description |
+| :--- | :--- | :--- |
+| `help` | Shell | Displays the full help screen with all commands. |
+| `chat` | Shell | Switches from Shell Mode to conversational Chat Mode. |
+| `exit` | Shell | **Quits the entire VibeCLI application.** |
+| `exit` | Chat | **Returns from Chat Mode back to Shell Mode.** |
+
+---
+
+### Getting Started
+
+1.  Clone the repository and run `npm install`.
+2.  Create a `.env` file and add your `GEMINI_API_KEY`.
+3.  Run the application with `npm start`.
+4.  Type `help` to see all available commands and instructions.

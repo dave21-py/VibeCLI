@@ -31,12 +31,12 @@ function drawHeader() {
     console.log(magenta('┌' + '─'.repeat(uiWidth - 2) + '┐'));
     console.log(createBorderedLine());
     // This is the corrected ASCII art for VIBECLI
-    console.log(magenta('│ ') + cyan.bold('██╗   ██╗██╗██████╗ ███████╗ ██████╗██╗     ██╗    ') + magenta(' │'));
-    console.log(magenta('│ ') + cyan.bold('╚██╗ ██╔╝██║██╔══██╗██╔════╝██╔════╝██║     ██║    ') + magenta(' │'));
-    console.log(magenta('│ ') + cyan.bold(' ╚████╔╝ ██║██████╔╝█████╗  ██║     ██║     ██║ ') + magenta(' │'));
-    console.log(magenta('│ ') + cyan.bold('  ╚██╔╝  ██║██╔══██╗██╔══╝  ██║     ██║     ██╝ ') + magenta(' │'));
-    console.log(magenta('│ ') + cyan.bold('   ██║   ██║██████╔╝███████╗╚██████╗███████╗██╗ ') + magenta(' │'));
-    console.log(magenta('│ ') + cyan.bold('   ╚═╝   ╚═╝╚═════╝ ╚══════╝ ╚═════╝╚══════╝╚═╝ ') + magenta(' │'));
+    console.log(magenta('│ ') + cyan.bold('██╗   ██╗██╗██████╗ ███████╗   ██████╗██╗     ██╗    ') + magenta('    │'));
+    console.log(magenta('│ ') + cyan.bold('██║   ██║██║██╔══██╗██╔════╝  ██╔════╝██║     ██║    ') + magenta('    │'));
+    console.log(magenta('│ ') + cyan.bold('██║   ██║██║██████╔╝█████╗    ██║     ██║     ██║ ') + magenta('       │'));
+    console.log(magenta('│ ') + cyan.bold('╚██╗ ██╔╝██║██╔══██╗██╔══╝    ██║     ██║     ██╝ ') + magenta('       │'));
+    console.log(magenta('│ ') + cyan.bold(' ╚████╔╝ ██║██████╔╝███████╗  ╚██████╗███████╗██╗ ') + magenta('       │'));
+    console.log(magenta('│ ') + cyan.bold('  ╚═══╝  ╚═╝╚═════╝ ╚══════╝   ╚═════╝╚══════╝╚═╝ ') + magenta('       │'));
     console.log(createBorderedLine());
     console.log(magenta('├' + '─'.repeat(uiWidth - 2) + '┤'));
     const assistantText = 'Creative AI Development Assistant';
