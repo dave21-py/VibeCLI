@@ -10,7 +10,7 @@
                     ╚████╔╝ ██║██████╔╝███████╗╚██████╗███████╗██╗
                      ╚═══╝  ╚═╝╚═════╝ ╚══════╝ ╚═════╝╚══════╝╚═╝
 </pre>
-  <p align="center">An AI-powered shell and creative assistant with a chill vibe.</p>
+  <p align="center">An AI-powered shell and assistant with a chill vibe, powered by Google's Gemini.</p>
 </p>
 
 <p align="center">
