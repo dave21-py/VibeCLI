@@ -23,8 +23,8 @@
 <p align="center">
   <!-- NOTE: Add a screenshot named `vibecli-demo.png` to your repo for this link to work! -->
   <a href="vibecli-demo.png">View Demo</a> ·
-  <a href="https://github.com/YOUR-USERNAME/VibeCLI/issues/new?labels=bug&template=bug_report.md">Report Bug</a> ·
-  <a href="https://github.com/YOUR-USERNAME/VibeCLI/issues/new?labels=enhancement&template=feature_request.md">Request Feature</a>
+  <a href="https://github.com/dave21-py/VibeCLI/issues/new?labels=bug&template=bug_report.md">Report Bug</a> ·
+  <a href="https://github.com/dave21-py/VibeCLI/issues/new?labels=enhancement&template=feature_request.md">Request Feature</a>
 </p>
 
 ---
